@@ -22,5 +22,11 @@ Program for computing binding energy and isovalue properties of nuclear EoS; pri
    
 # Files
 
+1. isobenv.py: Main script, contains parsing and Nelder-Mead optimization routines
 
+2. main_server.f: Main program, interfaces with the isobenv pipeline through std io
+
+3. Makefile: the Makefile for compiling the fortran code
+
+4. Server: fortran binary
    
