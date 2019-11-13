@@ -1,0 +1,109 @@
+n_control  iphen_print  iso_calc  iso_print  parab_rint 
+1          1            1         1          1
+
+n   mic  isnm  isym_emp  k0   rho0
+11  1    0     0         220  0.16
+
+nskin_opt  nskin_print  nden_opt  nden_print  nff_opt  nff_print
+1          1            1         1           1        1
+
+n1  n2  n3  x1   x2    ta     tz    nden  fff
+64  64  64  0.0  20.0  208.0  82.0  2     65.0
+
+irs  rlm  nfn  nfs
+20   10.  40   5
+
+zrep  arep  reset  aug_val  mirror  
+1     1     1      2        0              
+
+o_opt  ords  cuts  err_opt  
+1      3     2     1  
+
+----------------------------------------------
+|        Do Not Modify Below This Line       |
+----------------------------------------------
+
+To-Do list: 
+
+1.) Add MISC value options as passed parameters
+2.) Add SKVAL repeatoptions
+3.) Add Order and Order Error options [This will be 
+
+----------------
+| Input Format | : The Seven Levels [[2+2]:4+3]
+----------------
+
+Iso_options  : Iso options            [Line 2]
+Iso_values   : EoS phen options       [Line 5]
+NNV_options  : BENV options           [Line 8]       
+AZN_values   : Values options         [Line 11]
+MISC_values  : FFNUCD options         [Line 14]
+SKVAL_values : SKVAL options          [Line 17]
+ORD_options  : Order options          [Line 20]
+
+-------------------------------------
+|       Options Documentation       |      
+-------------------------------------
+
+----------------
+| Run Sequence |
+----------------
+
+n_control:     Set to 1
+
+iphen_print:   Set to: 1 for printing all phenomenological e0 values
+                       0 do not print 
+
+iso_calc:      Set to: 1 for calculating isovector and isoscalar properties 
+                       0 do not calculate
+
+iso_print:     Set to: 1 to print iosvector and isoscalar properties (note iso_calc must also be 1)
+                       0 do not print 
+       
+parab_print:   Set to: 1 to print EoS for incrementing isospin asymmetry
+                       0 do not print
+                      
+----------------
+| Iso Sequence |
+----------------
+
+n:             number of points in 'ex.don' file
+ 
+mic:           1 for microsopic EoS only, 0 for phenomenological eoS
+ 
+if mic = 0 then
+
+isnm:          1 for k0 dependent symmetric EoS, 0 for constant Phenom. symmetric EoS
+isym_emp:      1 for emperical symmetry energy, 0 for derived symmetry energy     
+k0:            Integer value [usually 220 or 260 (MeV)]
+rho0:          Saturation density for Phenom. EoS. [usually 0.16 (fm^{-3})]
+                
+                
+----------------
+| NNV Sequence |
+----------------
+                
+nskin_opt:     1 to calculate neutron and proton radii and skin, 
+                 symmetry energy coefficient and reference density 
+               0 do not calculate  
+                  
+nden_opt:      1 to calculate the proton, neutron and total density
+                 as functions of radial distance 
+               0 do not calculate  
+                  
+nden_print:    1 to print the nuclear densities described in nden_opt
+               (nden_opt must be equal to 1)
+               0 do not print
+                  
+nff_opt:       1 to calculate the form factor
+               0 do not calculate 
+                                            
+nff_print:     1 to print the form factor 
+               (nff_print must be equal to 1)
+               0 do not print   
+                    
+nden:          2 for 2PF (two-parameter Fermi density distriubtion) 
+               3 for 3PF (three-parameter extended Fermi density distribution)
+               4 for FY  (Folded-Yukawa density distribution)     
+                      
+fff:           Surface binding energy scaling value [usually 60-70 (MeV)]        
