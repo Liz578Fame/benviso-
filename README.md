@@ -30,3 +30,11 @@ Program for computing binding energy and isovalue properties of nuclear EoS; pri
 
 4. Server: fortran binary
    
+
+## To-Do List
+
+1. Add support for file re-structuring 
+
+2. Add support for skval looping
+
+3. Add support for eos looping and error analysis
